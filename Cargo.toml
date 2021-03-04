@@ -1,0 +1,27 @@
+[package]
+name = "docker-mon"
+version = "0.1.0"
+authors = ["Matthew Perry <perrygeo@gmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+futures = "0.3.1"
+tokio = { version = "0.2.6", features = ["macros"] }
+shiplift = { git = "https://github.com/softprops/shiplift.git", branch = "master" }
+serde_json = "1.0.59"
+# shiplift = "0.6.0"
+
+
+
+[profile.dev]
+panic = "abort"
+
+[profile.release]
+panic = "abort"
+# By default, Rust programs will unwind the stack when a panic! happens.
+# If you'd prefer an immediate abort instead, 
+# Why might you choose to do this? By removing support for unwinding,
+# you'll get smaller binaries. You will lose the ability to catch panics.
+# Which choice is right for you depends on exactly what you're doing.
